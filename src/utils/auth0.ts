@@ -8,7 +8,9 @@ const auth0 = initAuth0({
   clientSecret: config.auth0.clientSecret,
   scope: 'openid profile',
   redirectUri: config.auth0.redirectUri,
-  postLogoutRedirectUri: config.origin,
+  postLogoutRedirectUri: config.isProd
+    ? `https://${config.host}`
+    : `http://${config.host}:${config.port}`,
   session: {
     // The secret used to encrypt the cookie.
     cookieSecret: 'ZRcv3Ax7SjheaBuLJWmF2MAqdhd313m5D2P8wQbWtkR8g',

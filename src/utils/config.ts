@@ -2,10 +2,11 @@
 import IAuth0Settings from '@auth0/nextjs-auth0/dist/settings';
 
 export const config = {
+  isProd: process.env.NODE_ENV === 'production',
+
   host: process.env.HOST!,
   // Dynoのポート番号
   port: Number(process.env.PORT),
-  origin: process.env.HOST_URL!,
 
   // Auth0
   auth0: {
