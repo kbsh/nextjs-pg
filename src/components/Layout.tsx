@@ -3,29 +3,36 @@ import React, { ReactNode } from 'react';
 
 import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
+import { Auth } from '../interfaces/auth';
 import Header from './Header';
+import withAuthHoc from './hoc/WithAuth';
 
 type Props = {
-  children?: ReactNode;
+  children: ReactNode;
   title?: string;
+  user: Auth;
+  loading: boolean;
 };
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-    </Head>
-    <ScopedCssBaseline>
-      <Header />
-      {children}
-      <footer>
-        <hr />
-        <span>I am here to stay (Footer)</span>
-      </footer>
-    </ScopedCssBaseline>
-  </div>
-);
+const Layout = ({ children, title = 'This is the default title', user, loading }: Props) => {
+  const childrenWithAuth = React.cloneElement(children as React.ReactElement, { user, loading });
+  return (
+    <div>
+      <Head>
+        <title>{title}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <ScopedCssBaseline>
+        <Header />
+        {childrenWithAuth}
+        <footer>
+          <hr />
+          <span>I am here to stay (Footer)</span>
+        </footer>
+      </ScopedCssBaseline>
+    </div>
+  );
+};
 
-export default Layout;
+export default withAuthHoc(Layout);

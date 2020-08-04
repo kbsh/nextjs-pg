@@ -19,6 +19,8 @@ git clone https://github.com/kbsh/nextjs-pg.git
 yarn
 ```
 
+5. 開発用環境変数ファイル`.env.local`をルート直下に配置する
+
 ## 開発時
 - 開発サーバーをdevelopmentモードで立ち上げる
 
