@@ -1,30 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
-
+1. リポジトリをクローンする(※ hogeを置き換える)
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/kbsh/nextjs-pg.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. VS Codeのワークスペースを開く
+- `./nextjs-pg.code-workspace`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+3. VS Codeに必要なプラグインをインストール
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-## Learn More
+4. moduleをインストールする
+```bash
+yarn
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 開発時
+- ローカルで開発サーバーを立ち上げる
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn build
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[http://localhost:3000](http://localhost:3000)を開く
 
-## Deploy on Vercel
+## 参照Document
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js Documentation](https://nextjs.org/docs) - 概要.
+- [Learn Next.js](https://nextjs.org/learn) - Next.js チュートリアル
+- [Material-UI](https://material-ui.com/) - UI フレームワーク
