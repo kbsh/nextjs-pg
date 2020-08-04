@@ -10,6 +10,7 @@ git clone https://github.com/kbsh/nextjs-pg.git
 
 3. VS Codeに必要なプラグインをインストール
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [TypeScript Import Sorter](https://marketplace.visualstudio.com/items?itemName=mike-co.import-sorter)
 
 4. moduleをインストールする
 ```bash
