@@ -1,5 +1,6 @@
-import { useGetUser } from '../../actions/user';
-import { Path } from '../../utils/routes';
+import { useGetUser } from '@actions/users';
+import { Path } from '@utils/routes';
+
 import Redirect from '../Redirect';
 
 const withAuthHoc = (Component: any) => {

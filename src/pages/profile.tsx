@@ -1,4 +1,4 @@
-import { Auth } from '../interfaces/auth';
+import { Auth } from '@interfaces/auth';
 
 type Props = {
   user: Auth;

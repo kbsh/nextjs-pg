@@ -16,8 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuIcon from '@material-ui/icons/Menu';
-
-import { routes } from '../utils/routes';
+import { routes } from '@utils/routes';
 
 const drawerWidth = 240;
 

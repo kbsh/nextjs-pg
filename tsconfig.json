@@ -8,7 +8,7 @@
     "jsx": "preserve",
     "lib": [
       "dom",
-      "es2017"
+      "es2017",
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,8 +21,45 @@
     "strict": true,
     "target": "esnext",
     "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "noImplicitThis": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": true,
+    // for typeORM start
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": [
+      "reflect-metadata"
+    ],
+    // for typeORM end
+    "baseUrl": "./",
+    "paths": {
+      "@actions*": [
+        "src/actions*"
+      ],
+      "@components*": [
+        "src/components*"
+      ],
+      "@pages*": [
+        "src/pages*"
+      ],
+      "@utils*": [
+        "src/utils*"
+      ],
+      "@interfaces*": [
+        "src/interfaces*"
+      ],
+      "@server*": [
+        "src/server*"
+      ],
+      "@entities": [
+        "src/server/entities"
+      ],
+      "@repositories*": [
+        "src/server/repositories*"
+      ],
+    },
   },
   "exclude": [
     "node_modules"

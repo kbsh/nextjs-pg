@@ -14,12 +14,16 @@
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "next": "9.4.4",
+    "pg": "^8.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "swr": "^0.3.0"
+    "reflect-metadata": "^0.1.13",
+    "swr": "^0.3.0",
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
-    "@types/node": "^14.0.23",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@types/node": "^14.0.27",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.6.1",

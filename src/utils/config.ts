@@ -15,10 +15,4 @@ export const config = {
     clientSecret: process.env.AUTH0_CLIENT_SECRET!,
     redirectUri: process.env.AUTH0_CALLBACK_URL!,
   } as IAuth0Settings,
-
-  // PostgreSQL
-  postgres: {
-    url: process.env.DATABASE_URL!,
-    ssl: process.env.DATABASE_SSL === 'true',
-  },
 };

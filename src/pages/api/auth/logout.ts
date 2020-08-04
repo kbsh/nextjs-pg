@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import auth0 from '../../../utils/auth0';
+import auth0 from '@utils/auth0';
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {

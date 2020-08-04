@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
-import List from '../../components/List';
-import { User } from '../../interfaces';
-import { httpClient } from '../../utils/http-client';
+import { httpClient } from '@actions/lib/http-client';
+import List from '@components/List';
+import { User } from '@interfaces/index';
 
 type Props = {
   items: User[];

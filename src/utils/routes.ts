@@ -1,16 +1,18 @@
+import { Route } from '@interfaces/routes';
 import AcUnitSharp from '@material-ui/icons/AcUnitSharp';
+import ArrowDropDownCircle from '@material-ui/icons/ArrowDropDownCircle';
 import FaceIcon from '@material-ui/icons/Face';
 import GetApp from '@material-ui/icons/GetApp';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
 import Mail from '@material-ui/icons/Mail';
 
-import { Route } from '../interfaces/routes';
-
 export enum Path {
   Home = '/',
   Profile = '/profile',
+  Areas = '/areas',
   APILogin = '/api/auth/login',
   APIProfile = '/api/auth/profile',
+  APIAreas = '/api/areas',
 }
 
 export const routes: Route[] = [
@@ -38,5 +40,10 @@ export const routes: Route[] = [
     name: 'Profile',
     href: Path.Profile,
     icon: AcUnitSharp,
+  },
+  {
+    name: 'Areas',
+    href: Path.Areas,
+    icon: ArrowDropDownCircle,
   },
 ];

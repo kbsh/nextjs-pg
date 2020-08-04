@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import { Path } from '../utils/routes';
+import { Path } from '@utils/routes';
 
 interface Props {
   ssr?: true;

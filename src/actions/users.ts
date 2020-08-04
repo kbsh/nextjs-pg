@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 
-import { Auth } from '../interfaces/auth';
-import { httpClient } from '../utils/http-client';
-import { Path } from '../utils/routes';
+import { httpClient } from '@actions/lib/http-client';
+import { Auth } from '@interfaces/auth';
+import { Path } from '@utils/routes';
 
 export const useGetUser = () => {
   const { data, error, ...rest } = useSWR<Auth>(Path.APIProfile, httpClient.get);

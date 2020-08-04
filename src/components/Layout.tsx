@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
 
+import { Auth } from '@interfaces/auth';
 import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
-import { Auth } from '../interfaces/auth';
 import Header from './Header';
 import withAuthHoc from './hoc/WithAuth';
 
