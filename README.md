@@ -20,6 +20,7 @@ yarn
 ```
 
 5. 開発用環境変数ファイル`.env.local`をルート直下に配置する
+項目は`src/utils/config.ts`および`src/server/config.ts`を参照
 
 ## 開発時
 - 開発サーバーをdevelopmentモードで立ち上げる
