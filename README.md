@@ -20,11 +20,10 @@ yarn
 ```
 
 ## 開発時
-- ローカルで開発サーバーを立ち上げる
+- 開発サーバーをdevelopmentモードで立ち上げる
 
 ```bash
-yarn build
-yarn start
+yarn dev
 ```
 
 [http://localhost:3000](http://localhost:3000)を開く
