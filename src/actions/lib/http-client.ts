@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { config } from '@utils/config';
+import { Path } from '@utils/routes';
 
 const axiosInstance = axios.create({
   proxy: {
@@ -9,10 +10,12 @@ const axiosInstance = axios.create({
   },
 });
 
-async function get<T>(url: string): Promise<T> {
-  return (await axiosInstance.get<T>(url)).data;
+/**
+ * fetcher for SWR
+ *
+ * @param path
+ */
+export async function fetcher<T>(path: Path): Promise<T> {
+  return (await axiosInstance.get<T>(path)).data;
 }
 
-export const httpClient = {
-  get,
-};

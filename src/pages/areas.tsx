@@ -1,20 +1,21 @@
-import { GetServerSideProps } from 'next';
+import { NextPage } from 'next';
 
-import { getAreas } from '@actions/areas';
+import withSWRHoc from '@components/hoc/with-swr';
 import { AreaMaster } from '@entities';
+import { Path } from '@utils/routes';
 
 type Props = {
-  areas: AreaMaster[];
+  data: AreaMaster[];
 };
 
-const Component = ({ areas }: Props) => {
+const Component: NextPage<Props> = ({ data }: Props) => {
   return (
     <>
       <h1>Area List</h1>
       <p>You are currently on: /areas</p>
       <div>
         <ul>
-          {areas.map((area) => (
+          {data.map((area) => (
             <li key={area.id}>
               <p>id: {area.id}</p>
               <p>name: {area.name}</p>
@@ -26,10 +27,4 @@ const Component = ({ areas }: Props) => {
   );
 };
 
-// https://github.com/vercel/next.js/discussions/12785
-// export const getStaticProps: GetStaticProps = async () => {
-export const getServerSideProps: GetServerSideProps = async () => {
-  const areas = await getAreas();
-  return { props: { areas } };
-};
-export default Component;
+export default withSWRHoc<AreaMaster[]>(Component, Path.APIAreas);

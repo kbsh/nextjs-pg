@@ -13,6 +13,7 @@ export enum Path {
   APILogin = '/api/auth/login',
   APIProfile = '/api/auth/profile',
   APIAreas = '/api/areas',
+  APIUsers = '/api/users',
 }
 
 export const routes: Route[] = [

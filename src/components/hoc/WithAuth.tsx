@@ -7,7 +7,7 @@ const withAuthHoc = (Component: any) => {
   return (props: any) => {
     const { data, loading } = useGetUser();
     if (loading) {
-      return <p>loading...</p>;
+      return <p>Loading...</p>;
     }
     if (!data) {
       return <Redirect ssr to={Path.APILogin} />;

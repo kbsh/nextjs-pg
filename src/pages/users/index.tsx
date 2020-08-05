@@ -1,43 +1,27 @@
-import { GetServerSideProps } from 'next';
+import { NextPage } from 'next';
 import Link from 'next/link';
 
-import { httpClient } from '@actions/lib/http-client';
+import withSWRHoc from '@components/hoc/with-swr';
 import List from '@components/List';
 import { User } from '@interfaces/index';
+import { Path } from '@utils/routes';
 
-type Props = {
-  items: User[];
+interface Props {
+  data: User[];
+}
+const Component: NextPage<Props> = ({ data }: Props) => {
+  return (
+    <>
+      <h1>Users List</h1>
+      <p>You are currently on: /users</p>
+      <List items={data} />
+      <p>
+        <Link href="/">
+          <a>Go home</a>
+        </Link>
+      </p>
+    </>
+  );
 };
 
-const WithStaticProps = ({ items }: Props) => (
-  <>
-    <h1>Users List</h1>
-    <p>
-      Example fetching data from inside <code>getStaticProps()</code>.
-    </p>
-    <p>You are currently on: /users</p>
-    <List items={items} />
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </>
-);
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   // Example for including static props in a Next.js function component page.
-//   // Don't forget to include the respective types for any props passed into
-//   // the component.
-//   const items: User[] = await httpClient.get<User[]>('/api/users');
-//   return { props: { items } };
-// };
-export const getServerSideProps: GetServerSideProps = async () => {
-  // Example for including static props in a Next.js function component page.
-  // Don't forget to include the respective types for any props passed into
-  // the component.
-  const items: User[] = await httpClient.get<User[]>('/api/users');
-  return { props: { items } };
-};
-
-export default WithStaticProps;
+export default withSWRHoc<User[]>(Component, Path.APIUsers);
