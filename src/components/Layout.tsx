@@ -24,8 +24,7 @@ const Layout = ({ children, title = 'This is the default title', user, loading }
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ScopedCssBaseline>
-        <Header />
-        {childrenWithAuth}
+        <Header>{childrenWithAuth}</Header>
         <footer>
           <hr />
           <span>I am here to stay (Footer)</span>

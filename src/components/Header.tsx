@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { SwipeableDrawer } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
@@ -26,10 +26,18 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     toolbar: theme.mixins.toolbar,
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+    },
   })
 );
 
-export default function HeaderAndMenu() {
+interface Props {
+  children: ReactNode;
+}
+
+export default function HeaderAndMenu({ children }: Props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -75,6 +83,10 @@ export default function HeaderAndMenu() {
           ))}
         </List>
       </SwipeableDrawer>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        {children}
+      </main>
     </React.Fragment>
   );
 }
