@@ -5,7 +5,6 @@ import * as AreaMasterRepository from '@repositories/area-master';
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
     const areas = await AreaMasterRepository.findAll();
-    console.log('areas', areas);
 
     if (!Array.isArray(areas)) {
       throw new Error('Cannot find area-master');
