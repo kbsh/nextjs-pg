@@ -11,6 +11,7 @@ export enum Path {
   Profile = '/profile',
   Areas = '/areas',
   APILogin = '/api/auth/login',
+  APILogout = '/api/auth/logout',
   APIProfile = '/api/auth/profile',
   APIAreas = '/api/areas',
   APIUsers = '/api/users',

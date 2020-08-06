@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { ReactNode } from 'react';
 
 import { Menu, MenuItem, SwipeableDrawer } from '@material-ui/core';
@@ -14,7 +15,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
-import { routes } from '@utils/routes';
+import { Path, routes } from '@utils/routes';
+
+import ConfirmModal from './ConfirmModal';
 
 const drawerWidth = 240;
 
@@ -49,6 +52,9 @@ export default function HeaderAndMenu({ children }: Props) {
   // プロフィールメニューstate
   const [profileAnchorEl, setProfileAnchorEl] = React.useState<null | HTMLElement>(null);
   const isProfileMenuOpen = Boolean(profileAnchorEl);
+  // ログアウト確認モーダルstate
+  const router = useRouter();
+  const [isLogoutOpen, setLogoutOpen] = React.useState(false);
 
   const handleMenuOpen = () => {
     setMenuOpen(true);
@@ -64,6 +70,14 @@ export default function HeaderAndMenu({ children }: Props) {
     setProfileAnchorEl(null);
   };
 
+  const handleLogoutOpen = () => {
+    setLogoutOpen(true);
+    handleProdileMenuClose();
+  };
+  const handleLogoutClose = () => {
+    setLogoutOpen(false);
+  };
+
   const handlePasswordChange = () => {
     // TODO パスワード変更呼び出し
 
@@ -71,9 +85,7 @@ export default function HeaderAndMenu({ children }: Props) {
   };
 
   const handleLogout = () => {
-    // TODO Logout呼び出し
-
-    handleProdileMenuClose();
+    router.push(Path.APILogout);
   };
 
   return (
@@ -141,8 +153,17 @@ export default function HeaderAndMenu({ children }: Props) {
         onClose={handleProdileMenuClose}
       >
         <MenuItem onClick={handlePasswordChange}>パスワード変更</MenuItem>
-        <MenuItem onClick={handleLogout}>ログアウト</MenuItem>
+        <MenuItem onClick={handleLogoutOpen}>ログアウト</MenuItem>
       </Menu>
+
+      {/* 確認モーダル */}
+      <ConfirmModal
+        open={isLogoutOpen}
+        title={'ログアウト確認'}
+        message={'ログアウトしてよろしいですか？'}
+        handleClose={handleLogoutClose}
+        handleExec={handleLogout}
+      />
 
       {/* メインコンテンツ */}
       <main className={classes.content}>
