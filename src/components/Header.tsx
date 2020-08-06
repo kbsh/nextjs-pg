@@ -1,7 +1,9 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactNode } from 'react';
 
+import { Auth } from '@interfaces/auth';
 import { Menu, MenuItem, SwipeableDrawer } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
@@ -37,14 +39,23 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    marginVertical: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
+    marginHorizontal: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+    },
   })
 );
 
 interface Props {
   children: ReactNode;
+  user: Auth;
 }
 
-export default function HeaderAndMenu({ children }: Props) {
+export default function HeaderAndMenu({ children, user }: Props) {
   const classes = useStyles();
 
   // メニューstate
@@ -152,6 +163,13 @@ export default function HeaderAndMenu({ children }: Props) {
         open={isProfileMenuOpen}
         onClose={handleProdileMenuClose}
       >
+        <div className={clsx(classes.marginVertical, classes.marginHorizontal)}>
+          Signed in as
+          <Typography variant="h6" gutterBottom>
+            {user.name}
+          </Typography>
+        </div>
+        <Divider className={classes.marginVertical} />
         <MenuItem onClick={handlePasswordChange}>パスワード変更</MenuItem>
         <MenuItem onClick={handleLogoutOpen}>ログアウト</MenuItem>
       </Menu>
