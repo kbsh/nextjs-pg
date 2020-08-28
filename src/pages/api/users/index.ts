@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import auth0 from '@utils/auth0';
 import { sampleUserData } from '@utils/sample-data';
 
-const handler = (_req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (!Array.isArray(sampleUserData)) {
       throw new Error('Cannot find user data');
@@ -14,4 +15,4 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default handler;
+export default auth0.requireAuthentication(handler);

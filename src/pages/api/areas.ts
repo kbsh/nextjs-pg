@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import * as AreaMasterRepository from '@repositories/area-master';
+import auth0 from '@utils/auth0';
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -16,4 +17,4 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default handler;
+export default auth0.requireAuthentication(handler);
